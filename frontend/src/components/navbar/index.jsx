@@ -5,7 +5,7 @@ import './index.css'
 
 const Navbar = () => {
   const navi=useNavigate()
-const [asUser,setAsUser]=useState(true)
+const [asUser,setAsUser]=useState(false)
 //   const {setWantLogout,setIsEdit,isEdit}=useContext(MyContext)
   return (
     <div className='nav-parent'>

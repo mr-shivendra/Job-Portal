@@ -5,7 +5,7 @@ import JobBoard from '../../components/joblist'
 import AddNewJob from '../../components/AddJob'
 
 const Home = () => {
-   const [isRecruiter,setIsRecruiter]=useState(false)
+   const [isRecruiter,setIsRecruiter]=useState(true)
   return (
     <div>
         <Navbar/>
