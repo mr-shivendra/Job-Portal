@@ -1,0 +1,60 @@
+.intro-parent{
+    width:100%;
+    display:flex;
+    align-items: center;
+    padding:13vh 9vw;
+    height:calc(100%-10vh);
+    gap: 10vw;
+    margin-top: 10vh;
+
+    & .intro-text{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+
+        & h2{
+            font-size: 0.7em;
+            font-variant: small-caps;
+            word-spacing: 4px;
+
+           & span{
+                color:#3f846a;
+                font-size: 1em;
+            }
+        }
+
+        & p{
+            color:grey;
+            font-size: 0.28em;
+            letter-spacing: 1px;
+            margin-top:8vh ;
+            margin-bottom: 16vh;
+            padding:0 2vw;
+        }
+
+        & button{
+            font-size: 0.4em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color:#fff;
+            background-color: #3f846a;
+            width:42%;
+            height:8vh;
+            border-radius: 8px;
+            border: none;
+        }
+
+    }
+
+    & .intro-image{
+        width:100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & img{
+            width:80%;
+        }
+    }
+}
+

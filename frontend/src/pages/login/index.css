@@ -1,0 +1,114 @@
+.form-div{
+    width:100%;
+    height:calc(100%-10vh);
+    padding:3vw;
+    margin-top:10vh;
+    display:grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    background-color: #c6f8e5;
+
+    & .regitr-div{
+        display: flex;
+        gap:4vw;
+        & .form-image{  
+            width:50vw;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            
+            & img{
+                width:70%;
+                aspect-ratio: 1;
+
+            }
+        }
+    }
+
+    & h3{
+        font-size: 0.9em;
+        font-weight: 900;
+        word-spacing: 2px;
+        letter-spacing: 2px;
+        text-align: center;
+         font-variant: small-caps;
+         color:#3f846a;
+    }
+
+    & .registar-form{
+        width:60%;
+        display: flex;
+        flex-direction: column;
+        padding:5vh 5vw;
+        gap:4vh;
+        align-items: center;
+
+    }
+
+    & .login-form{
+        width:60%;
+        display: flex;
+        flex-direction: column;
+        padding:5vh 5vw;
+        gap:5vh;
+    }
+
+}
+
+.form-div input {
+            height:6vh;
+            border-radius: 8px;
+            font-size: 0.3em;
+            text-align: center;
+            border: none;
+            /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+            /* border: 1px solid #FE7743; */
+        
+}
+
+.form-div>h4{
+    font-size: 0.5em;
+    text-align: center;
+    color:#236e52;
+}
+
+.form-div>h4>span{
+    font-size: 1.2em;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.registar-form>input:nth-of-type(5){
+     height:6vh;
+            border-radius: 8px;
+            font-size: 0.3em;
+            text-align: center;
+            border: none;
+}
+.registar-form>input:nth-of-type(7){
+            margin: auto;
+            background-color: #54bd95;
+            width:33%;
+            color:#fff;
+            font-size:0.5em;
+            font-weight:600;
+            letter-spacing: 2px;
+        }
+.registar-form>input:nth-of-type(7):hover{
+            cursor: pointer;
+            background-color: #236e52;
+        }
+
+.submit-btn{
+            margin: auto;
+            background-color: #54bd95;
+            width:33%;
+            color:#fff;
+            font-size:0.5em;
+            font-weight:600;
+            letter-spacing: 2px;
+        }
+.submit-btn:hover{
+            cursor: pointer;
+            background-color: #236e52;
+        }

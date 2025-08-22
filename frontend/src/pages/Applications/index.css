@@ -1,0 +1,52 @@
+.application-box{
+    width:100%;
+    align-items: center;
+    padding:2vh 9vw 10vh;
+    height:calc(100%-10vh);
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+.application-box>h5{
+    font-size: 0.6em;
+}
+.application-box p{
+    font-size: 0.4em;
+    color:grey;
+}
+.application-body{
+    width:100%;
+    padding:2vh 0.2vw;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap:2vw
+}
+.application-body>div{
+    display: grid;
+    gap:0.2vh;
+    padding:3vh 1vw;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+}
+.application-body>div>b{
+    font-size: 0.4em;
+    letter-spacing: 1px;
+    color:#3f846a ;
+}
+.job-details{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.job-details>button{
+    font-size:0.4em;
+    background-color: #3f846a;
+    border-radius: 6px;
+    border: none;
+    width:30%;
+    height:5vh;
+    cursor: pointer;
+    color:#fff;
+    letter-spacing: 1px;
+    font-weight: 500;
+}

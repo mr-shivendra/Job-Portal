@@ -1,0 +1,66 @@
+
+.newJob-backdrop{
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* dimmed background */
+  z-index:999 ;
+}
+
+.newJob-box{
+    width:50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    background-color: #fff;
+    padding: 4vh 2vw;
+    border-radius: 8px;
+    text-align: center;
+}
+.newJob-box span{
+    position:absolute;
+    width:1vw;
+    top:1%;
+    left:97%;
+    font-size: 0.4em;
+    color:grey;
+    cursor:pointer;
+    background-color: #fff;
+    text-align: center;
+}
+.newJob-box>b{
+    font-size: 0.7em;
+    letter-spacing: 0.5px;
+    color:#3f846a ;
+    font-weight: 600;
+}
+form{
+    padding:2vh auto;
+}
+form input{
+    width:90%;
+    height:5vh;
+    border:0.2px solid grey;
+    font-size: 0.4em;
+    padding:3px;
+    border-radius: 4px;
+}
+.jobSubmit-btn{
+    font-size:0.4em;
+    background-color: #3f846a;
+    border-radius: 6px;
+    border: none;
+    width:30%;
+    height:5vh;
+    cursor: pointer;
+    color:#fff;
+    letter-spacing: 1px;
+    font-weight: 500;
+}

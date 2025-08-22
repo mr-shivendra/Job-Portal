@@ -1,0 +1,60 @@
+.job-box{
+    width:100%;
+    align-items: center;
+    padding:2vh 9vw 10vh;
+    height:calc(100%-10vh);
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+p{
+ font-size:0.4em;
+}
+.job-box>h5{
+    font-size: 0.6em;
+}
+.job-box p{
+    font-size: 0.3em;
+    color:grey;
+}
+
+.job-body{
+    width:100%;
+    padding:2vh 0.2vw;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:2vw
+}
+.job-body>div{
+    display: grid;
+    gap:0.6vh;
+    padding:3vh 1vw;
+}
+
+.job-body>div:hover{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.job-body>div>b{
+    font-size: 0.4em;
+    letter-spacing: 1px;
+    color:#3f846a ;
+}
+.apply-btn{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.apply-btn>button{
+    font-size:0.4em;
+    background-color: #3f846a;
+    border-radius: 6px;
+    border: none;
+    width:50%;
+    height:5vh;
+    cursor: pointer;
+    color:#fff;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
