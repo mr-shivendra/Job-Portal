@@ -14,7 +14,7 @@ function roleware(arr){
     if(arr.includes(userData.payload.role)){
         next()
     }else{
-        res.send('Your are not Authorize')
+        return res.send(`${JSON.stringify({data:'',error:'Only Recruiter Can Post The Jobs'})}`)
     }
 }
 }

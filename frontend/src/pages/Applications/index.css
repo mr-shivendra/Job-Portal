@@ -10,7 +10,7 @@
 .application-box>h5{
     font-size: 0.6em;
 }
-.application-box p{
+.application-box p,.job-listed p{
     font-size: 0.4em;
     color:grey;
 }
@@ -20,6 +20,23 @@
     display: grid;
     grid-template-columns: repeat(1,1fr);
     gap:2vw
+}
+.listed-job-div{
+    width:100%;
+    padding:2vh 0.2vw;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap:2vw
+}
+.job-listed{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:2vw
+}
+.job-listed>div>b{
+    font-size: 0.4em;
+    letter-spacing: 1px;
+    color:#3f846a ;
 }
 .application-body>div{
     display: grid;
@@ -38,7 +55,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.job-details>button{
+.job-details>button,.job-listed button{
     font-size:0.4em;
     background-color: #3f846a;
     border-radius: 6px;
@@ -49,4 +66,26 @@
     color:#fff;
     letter-spacing: 1px;
     font-weight: 500;
+}
+
+.job-listed button{
+    font-size:0.4em;
+    background-color: #3f846a;
+    border-radius: 6px;
+    border: none;
+    width:60%;
+    height:5vh;
+    cursor: pointer;
+    color:#fff;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.applied-not{
+    width:100%;
+    height:60vh;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    color: #3f846a;
 }

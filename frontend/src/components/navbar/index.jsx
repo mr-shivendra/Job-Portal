@@ -1,14 +1,16 @@
 import {useContext,useState} from 'react'
-// import { MyContext } from '../../contextapi.jsx'
+ import { MyContext } from '../../contextapi.jsx'
 import { useNavigate } from 'react-router-dom'
+import AddNewJob from '../AddJob/index.jsx'
 import './index.css'
 
 const Navbar = () => {
   const navi=useNavigate()
-const [asUser,setAsUser]=useState(false)
-//   const {setWantLogout,setIsEdit,isEdit}=useContext(MyContext)
+  const role=localStorage.getItem('role')
+  const {isAddJob,setIsAddJob}=useContext(MyContext)
   return (
     <div className='nav-parent'>
+      {isAddJob && <AddNewJob/>}
         <div className="company-name">
             JobX
         </div>
@@ -17,7 +19,7 @@ const [asUser,setAsUser]=useState(false)
             <a href="/jobs">Jobs</a>
             <a href="/applications">Applications</a>
             {
-              asUser?<a href="/profile">Profile</a>:<a href="#form-column">Add</a>
+              role==='user'?<a href="/profile">Profile</a>:<a href="#" onClick={()=>{setIsAddJob(true)}}>Add</a>
             }
             
             <a href='#introduction' onClick={()=>{

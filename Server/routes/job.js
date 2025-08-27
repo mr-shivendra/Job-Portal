@@ -18,7 +18,20 @@ jobRouter.get('/',async(req,res)=>{
     }
 })
 
-jobRouter.get('/:title',async(req,res)=>{
+jobRouter.get('/Jobid/:id',async(req,res)=>{
+    try {
+        const idx=req.params.id
+        const jobs= await JobModel.find({_id:idx})
+        if (jobs.length==0){
+            return res.send(`${JSON.stringify({data:'',error:'This Job is not listed'})}`)
+        }
+        return res.send(`${JSON.stringify({data:jobs[0],error:''})}`)
+    } catch (error) {
+        return res.send(`${JSON.stringify({data:'',error:`${error}`})}`)
+    }
+})
+
+jobRouter.get('/role/:title',async(req,res)=>{
     try {
         const title=req.params.title
         const jobs=await JobModel.find({title:title})
@@ -28,11 +41,11 @@ jobRouter.get('/:title',async(req,res)=>{
     }
 })
 
-jobRouter.get('/:id',async(req,res)=>{
+jobRouter.get('/recruiter/:id',async(req,res)=>{
     try {
-        const idx=req.params.id
-        const jobs=await JobModel.find({id:idx})
-         jobs?res.send(`${JSON.stringify({data:jobs})}`):{data:''}
+        const id=req.params.id
+        const jobs=await JobModel.find({recruiterId:id})
+        jobs?res.send(`${JSON.stringify({data:jobs})}`):{data:''}
     } catch (error) {
         return res.send(`${error}`)
     }
@@ -43,28 +56,16 @@ jobRouter.post('/add',roleware(['recruiter']),async(req,res)=>{
         const token=req.get('token')
         const {title,description,lastDate,company}=req.body
          const userPhone=jwt.decode(token,jwt_key)
-         console.log(userPhone)
         const job=new JobModel({
             title,description,lastDate,company,
             recruiterId:userPhone.payload._id
         })
         await job.save()
-        res.send(`New Job has uploaded, role as ${title}`)
+        return res.send(`${JSON.stringify({data:`New Job has uploaded, role as ${title}`,error:''})}`)
     } catch (error) {
-        return res.send(`${error}`)
+        return res.send(`${JSON.stringify({data:'',error:`${error}`})}`)
     }
 })
-
-// jobRouter.put('/updates/:id',roleware(['admin','recruiter']),async(req,res)=>{
-//     try {
-//         const idx =req.params.id
-//         const toUpdate=req.body
-//         await JobModel.findByIdAndUpdate({_id:idx},toUpdate)
-//         res.send(`New updates takes place`)
-//     } catch (error) {
-//         return res.send(`${error}`)
-//     }
-// })
 
 jobRouter.put('/applied/:id',roleware(['admin','recruiter','user']),async(req,res)=>{
     try {
@@ -73,8 +74,6 @@ jobRouter.put('/applied/:id',roleware(['admin','recruiter','user']),async(req,re
         const userDetails=jwt.decode(token)
         const jobDetail=await JobModel.find({_id:idx})
         const applyDetails={jobId:idx,status:'Applied',message:'',company:jobDetail[0].company}
-        // const seekerAppliedDetails=userDetails.payload.appliedDetails.push(applyDetails)
-        // console.log(seekerAppliedDetails)
         jobDetail[0].appliedId.push(userDetails.payload._id)
         await JobModel.findByIdAndUpdate({_id:idx},{appliedId:jobDetail[0].appliedId})
         await UserModel.findByIdAndUpdate(userDetails.payload._id,{ $push: { appliedDetails: applyDetails } } )
@@ -88,8 +87,7 @@ jobRouter.put('/accept/:id',roleware(['recruiter']),async(req,res)=>{
     try {
         const jobId = req.params.id;
         const {id}=req.body
-
-    const newData = {
+        const newData = {
       status: 'Accept',
       message: 'Your interview is scheduled tomorrow at 5pm IST'
     };
@@ -97,7 +95,6 @@ jobRouter.put('/accept/:id',roleware(['recruiter']),async(req,res)=>{
     // Fetch user
     const user = await UserModel.find({_id:id});
     if (!user) return res.status(404).send('User not found');
-    // Update appliedDetails array
     user[0].appliedDetails = user[0].appliedDetails
   .filter(detail => typeof detail === 'object' && detail !== null && detail.jobId) // remove invalid entries
   .map(detail =>

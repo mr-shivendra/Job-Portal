@@ -1,0 +1,57 @@
+.applicants-box{
+    width:100%;
+    align-items: center;
+    padding:2vh 9vw 10vh;
+    height:calc(100%-10vh);
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+.applicants-box>h5{
+    font-size: 0.6em;
+}
+.applicants-box p{
+    font-size: 0.4em;
+    color:grey;
+}
+.applicants-body{
+    width:100%;
+    padding:4vh 0.2vw;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap:3vh
+}
+.applicants-data{
+    width:100%;
+    padding:2vh 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.applicants-data>b{
+    font-size: 0.5em;
+    letter-spacing: 1px;
+    color:black ;
+}
+.applicants-data button{
+    font-size:0.4em;
+    background-color: #3f846a;
+    border-radius: 6px;
+    border: none;
+    width:30%;
+    height:5vh;
+    cursor: pointer;
+    color:#fff;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.applied-not{
+    width:100%;
+    height:60vh;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    color: #3f846a;
+}

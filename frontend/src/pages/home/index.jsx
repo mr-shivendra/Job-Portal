@@ -5,13 +5,12 @@ import JobBoard from '../../components/joblist'
 import AddNewJob from '../../components/AddJob'
 
 const Home = () => {
-   const [isRecruiter,setIsRecruiter]=useState(true)
   return (
     <div>
         <Navbar/>
         <Intro/>
         <JobBoard/>
-        {isRecruiter && <AddNewJob onCloseAdd={()=>setIsRecruiter(false)}/>}
+        {/* {isRecruiter && <AddNewJob onCloseAdd={()=>setIsRecruiter(false)}/>} */}
     </div>
   )
 }

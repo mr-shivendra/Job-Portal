@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 import { MyContext } from '../../contextapi'
 
 const Registration = () => {
-  const {isLogin,setIsLogin,setAsUser}=useContext(MyContext)
+  const {isLogin,setIsLogin,setAsUser,setIsRecruiter}=useContext(MyContext)
   const urls='http://localhost:2019/app'
   const [user,setUser]=useState({
     name:'',
@@ -30,41 +30,38 @@ const Registration = () => {
   async function registr(e){
         e.preventDefault()
         if (isLogin){
-          console.log(user)
           try {
             const res= await axios.post(`${urls}/Registration`,user)
-            if (res.data==='Congratulations'){
+            if (res.data.error.length===0){
               setIsLogin(!isLogin)
-              alert(`${res.data}`)
+              alert(`${res.data.data}`)
             }else{
-              alert(`${res.data}`)
-            }
-            
+              alert(`${res.data.error}`)
+            }         
         } catch (error) {
             alert(`${error}`)
         }
         }else{
-          console.log(logins)
           try {
             const res= await axios.post(`${urls}/login`,logins)
-            localStorage.setItem('token',res.data)
-            navi('/home')
+            if (res.data.error.length===0){
+              localStorage.setItem('token',res.data.token)
+              localStorage.setItem('role',res.data.role)
+              navi('/home')
+            }else{
+              alert(res.data.error)
+            }
         } catch (error) {
             alert(`${error}`)
         }
          }
     }
-
-
    function fillValues(e){
         const {name,value}=e.target
         isLogin?setUser({...user,[name]:value}):setLogin({...logins,[name]:value})
     }
-
-
-      useEffect(() => { 
+    useEffect(() => { 
         AOS.init(); 
-        localStorage.setItem('asUser',false)
       }, []);
   return(<>
   <Navbar/>

@@ -9,6 +9,7 @@ import './App.css'
 import Application from './pages/Applications'
 import SeekerProfile from './pages/profile'
 import Details from './components/pop'
+import Applicants from './pages/applicants'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
       <Route path='/profile' element={< SeekerProfile/>}/>
       <Route path='/Jobs' element={< JobBoard/>}/>
       <Route path='/details' element={< Details/>}/>
+      <Route path='/applicants/:id' element={< Applicants/>}/>
     </Routes>
     </BrowserRouter>
   )
