@@ -1,11 +1,9 @@
 import {useContext,useState} from 'react'
  import { MyContext } from '../../contextapi.jsx'
-import { useNavigate } from 'react-router-dom'
 import AddNewJob from '../AddJob/index.jsx'
 import './index.css'
 
 const Navbar = () => {
-  const navi=useNavigate()
   const role=localStorage.getItem('role')
   const {isAddJob,setIsAddJob}=useContext(MyContext)
   return (
@@ -23,7 +21,6 @@ const Navbar = () => {
             }
             
             <a href='#introduction' onClick={()=>{
-            //    setWantLogout(true)
             }} >...</a>
        </div>
     </div>

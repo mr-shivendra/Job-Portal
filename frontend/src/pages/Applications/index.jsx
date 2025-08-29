@@ -13,40 +13,18 @@ const Application = () => {
         isPopup,setIsPopup,idx,setIdx,setJobId}=useContext(MyContext)
     const [listedJobs,setListedJobs]=useState([])
     const navi=useNavigate()
-    const [applications,setApplications]=useState([
-    {
-        company:'Technoship',
-        status:'Rejected',
-        message:'Missing Skills'
-    },
-    {
-        company:'Alphatech',
-        status:'applied',
-        message:''
-    },
-    {
-        company:'Microsoft',
-        status:'Accept',
-        message:'Your interview schduled at 5pm tommaro IST'
-    }
-  
-
-    ])
-    // const applicationsurls='http://localhost:2019/app/userDetail'
+    const [applications,setApplications]=useState([])
     const role=localStorage.getItem('role')
 
     async function fetchJobbyRecruiter(id){
         const res=await axios.get(`${jobsDetailUrl}/recruiter/${id}`)
-       // console.log(res.data.data)
         setListedJobs(res.data.data)
-
     }
 
     async function fetchApplicationDetails(id,token){
         const res=await axios.get(`${seekerDetailUrl}/userDetail/${id}`,{
             headers: {'token': `${token}`}
         })
-       // console.log(res.data)
         setApplications(res.data.appliedDetails)
     }
 

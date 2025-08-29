@@ -3,8 +3,8 @@ import { MyContext } from '../../contextapi'
 import axios from 'axios'
 import './index.css'
 
-const AddNewJob = ({onCloseAdd}) => {
-    const {isAddJob,setIsAddJob,jobsDetailUrl}=useContext(MyContext)
+const AddNewJob = () => {
+    const {setIsAddJob,jobsDetailUrl}=useContext(MyContext)
     const token=localStorage.getItem('token')
     const newJobRef=useRef()
     const[jobData,setJobData]=useState({
@@ -19,7 +19,6 @@ const AddNewJob = ({onCloseAdd}) => {
     }
     async function handleSubmit(e){
         e.preventDefault()
-       // console.log(jobData)
     if (jobData.company && jobData.title && jobData.description && jobData.lastDate){
         const res=await axios.post(`${jobsDetailUrl}/add`,jobData,{
              headers: {'token': `${token}`}

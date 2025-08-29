@@ -10,7 +10,6 @@ const Home = () => {
         <Navbar/>
         <Intro/>
         <JobBoard/>
-        {/* {isRecruiter && <AddNewJob onCloseAdd={()=>setIsRecruiter(false)}/>} */}
     </div>
   )
 }

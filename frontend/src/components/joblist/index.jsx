@@ -6,7 +6,6 @@ import './index.css'
 
 const JobBoard = () => {
     const [jobs,setJobs]=useState([1,2,3,4,5,6])
-    const [isRecruiter,setIsRecruiter]=useState(false)
     const {jobsDetailUrl}=useContext(MyContext)
     const token=localStorage.getItem('token')
 
@@ -42,8 +41,7 @@ const JobBoard = () => {
               <div className='apply-btn'>
                  <p>Last Date :{ele.lastDate}</p>
                  <button onClick={()=>applyJobs(ele)}>Apply</button>
-              </div>
-              
+              </div>   
             </div> )}
             </div>:'There is no Jobs Listed'
           }

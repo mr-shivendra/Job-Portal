@@ -2,8 +2,6 @@ import { useState } from 'react'
 import JobBoard from './components/joblist'
 import Registration from './pages/login'
 import Home from './pages/home'
-import Navbar from './components/navbar'
-import Intro from './components/intro'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import './App.css'
 import Application from './pages/Applications'
@@ -12,7 +10,6 @@ import Details from './components/pop'
 import Applicants from './pages/applicants'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>

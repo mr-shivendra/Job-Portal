@@ -1,6 +1,5 @@
-import {useEffect,useState,useContext} from 'react'
+import {useEffect,useContext} from 'react'
 import './index.css'
-import AddNewJob from '../AddJob';
 import { MyContext } from '../../contextapi';
 import { useNavigate } from 'react-router-dom';
 import intro from '../../assets/developer.png'
@@ -8,7 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Intro = () => {
-  const {isAddJob,setIsAddJob}=useContext(MyContext)
+  const {setIsAddJob}=useContext(MyContext)
   const role=localStorage.getItem('role')
   const navi=useNavigate()
 

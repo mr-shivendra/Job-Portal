@@ -10,11 +10,11 @@ const SeekerProfile = () => {
     const token = localStorage.getItem('token');
     const {seekerDetailUrl}=useContext(MyContext)
     const [userData,setUserData]=useState({
-        name:'surya',
-        phone:900409034,
-        email:'surya@gmail.com',
-        education:'B.tech in cse',
-        skills:'python,nodejs,react'
+        name:'',
+        phone:0,
+        email:'',
+        education:'',
+        skills:''
     })
 
     async function fetchUser(id,token){

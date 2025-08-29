@@ -4,15 +4,13 @@ import './index.css'
 import formimage from '../../assets/intro.png'
 import axios from 'axios'
 import Navbar from '../../components/navbar'
-// import Footer from '../footer'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import { MyContext } from '../../contextapi'
 
 const Registration = () => {
-  const {isLogin,setIsLogin,setAsUser,setIsRecruiter}=useContext(MyContext)
-  const urls='http://localhost:2019/app'
+  const {isLogin,setIsLogin,seekerDetailUrl}=useContext(MyContext)
   const [user,setUser]=useState({
     name:'',
     phone:'',
@@ -31,7 +29,7 @@ const Registration = () => {
         e.preventDefault()
         if (isLogin){
           try {
-            const res= await axios.post(`${urls}/Registration`,user)
+            const res= await axios.post(`${seekerDetailUrl}/Registration`,user)
             if (res.data.error.length===0){
               setIsLogin(!isLogin)
               alert(`${res.data.data}`)
@@ -43,7 +41,7 @@ const Registration = () => {
         }
         }else{
           try {
-            const res= await axios.post(`${urls}/login`,logins)
+            const res= await axios.post(`${seekerDetailUrl}/login`,logins)
             if (res.data.error.length===0){
               localStorage.setItem('token',res.data.token)
               localStorage.setItem('role',res.data.role)
@@ -99,7 +97,6 @@ const Registration = () => {
            <h4>If you are New User  Then <span onClick={()=>setIsLogin(!isLogin)}> Click to Registartion</span> </h4>
     </div>
     }
-     {/* <Footer/> */}
     </>
   )
 }

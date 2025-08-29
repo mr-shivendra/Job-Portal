@@ -3,7 +3,6 @@ import cors from 'cors'
 import connection from './config/index.js'
 import {userRouter} from './routes/user.js'
 import jobRouter from './routes/job.js'
-// import multer from 'multer'
 
 const port=2019
 
