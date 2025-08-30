@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import connection from './config/index.js'
-import {userRouter} from './routes/user.js'
+import userRouter from './routes/user.js'
 import jobRouter from './routes/job.js'
 
 const port=2019

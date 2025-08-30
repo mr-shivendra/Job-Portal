@@ -1,5 +1,4 @@
 import express from 'express'
-import { jwt_key } from './user.js'
 import JobModel from '../models/job.js'
 import UserModel from '../models/user.js'
 import jwt from 'jsonwebtoken'

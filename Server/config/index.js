@@ -1,5 +1,8 @@
 import mongoose from 'mongoose'
-const url='' // write your database url here
+import dotenv from 'dotenv'
+
+dotenv.config()
+const url= process.env.URL //write your database url
 
 
 const connection= mongoose.connect(url)
